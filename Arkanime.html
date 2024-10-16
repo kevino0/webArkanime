@@ -459,41 +459,35 @@ body {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script>
-        const menuItems = document.querySelectorAll('.menu-item');
-        const mockupScreen = document.getElementById('mockupScreen');
+    const menuItems = document.querySelectorAll('.menu-item');
+    const mockupScreen = document.getElementById('mockupScreen');
 
-        menuItems.forEach(item => {
-            item.addEventListener('click', () => {
-                menuItems.forEach(i => i.classList.remove('active'));
-                item.classList.add('active');
-                
-                // Change l'image du mockup
-                const screenSrc = item.getAttribute('data-screen');
-                mockupScreen.src = screenSrc;
-            });
+    menuItems.forEach(item => {
+        item.addEventListener('click', () => {
+            menuItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+            
+            // Change l'image du mockup
+            const screenSrc = item.getAttribute('data-screen');
+            mockupScreen.src = screenSrc;
         });
-        function adjustLayoutForMobile() {
-    const mockupContainer = document.querySelector('.mockup-container');
-    const externalMenu = document.querySelector('.external-menu');
-    const device = document.querySelector('.device');
+    });
 
-     if (window.innerWidth <= 768) {
+    function adjustLayoutForMobile() {
+        const mockupContainer = document.querySelector('.mockup-container');
+        const externalMenu = document.querySelector('.external-menu');
+        const device = document.querySelector('.device');
+
+        if (window.innerWidth <= 768) {
             mockupContainer.insertBefore(device, externalMenu);
         } else {
             mockupContainer.appendChild(device);
         }
+    }
 
     window.addEventListener('load', adjustLayoutForMobile);
     window.addEventListener('resize', adjustLayoutForMobile);
 </script>
-
-    if (window.innerWidth <= 768) {
-        mockupContainer.insertBefore(device, externalMenu);
-    } else {
-        mockupContainer.appendChild(device);
-    }
-}
-    </script>
 
 </body>
 </html>
