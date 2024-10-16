@@ -477,6 +477,16 @@ body {
     const externalMenu = document.querySelector('.external-menu');
     const device = document.querySelector('.device');
 
+     if (window.innerWidth <= 768) {
+            mockupContainer.insertBefore(device, externalMenu);
+        } else {
+            mockupContainer.appendChild(device);
+        }
+
+    window.addEventListener('load', adjustLayoutForMobile);
+    window.addEventListener('resize', adjustLayoutForMobile);
+</script>
+
     if (window.innerWidth <= 768) {
         mockupContainer.insertBefore(device, externalMenu);
     } else {
